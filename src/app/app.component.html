@@ -1,1 +1,10 @@
-<form-example></form-example>
+<div *ngIf="selectedModel">
+    <div style="margin:0 auto; display:block;">
+        <br>
+        <label class="ui-widget">Select an OrderCloud Model</label>
+        <br>
+        <p-dropdown [options]="models" [(ngModel)]="selectedModel"></p-dropdown>
+    </div>
+    <hr>
+    <oc-form [type]="selectedModel"></oc-form>
+</div>

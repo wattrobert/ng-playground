@@ -1,29 +1,44 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
-import { ReactiveFormsModule } from "@angular/forms";
-import { DynamicFormsCoreModule } from "@ng-dynamic-forms/core";
-import { DynamicFormsPrimeNGUIModule } from "@ng-dynamic-forms/ui-primeng";
-import { FormExampleComponent } from "./form-example/form-example.component"
-import { AppRoutingModule } from './app-routing.module';
+import { DropdownModule } from 'primeng/primeng';
+import { AppRoutingModule } from './app-routing.module';	
+import { OrdercloudFormsCoreModule } from './ordercloud-forms/core.module'
+
 import { AppComponent } from './app.component';
 
-import { PanelModule } from 'primeng/primeng';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FormExampleComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
-    DynamicFormsCoreModule.forRoot(), 
-    DynamicFormsPrimeNGUIModule, 
-    PanelModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    DropdownModule,
+    OrdercloudFormsCoreModule.forRoot({
+      exclude:[
+        'ID', 
+        'AddressName',
+        'ToAddressID',
+        'FromAddressID'
+      ], 
+      labelMap:[
+        {
+          key:'Street1',
+          label:'Address Line 1'
+        },
+        {
+          key:'Street2',
+          label:'Address Line 2'
+        }
+      ]
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
