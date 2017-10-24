@@ -7,10 +7,10 @@ import _ from "lodash";
 export class OcTypePipe implements PipeTransform {
   transform(key: string, type: string): string {
     var keyReplacement = _.find(ocKeyTypeMap, function(map) {
-        return key.includes(map.matcher);
+      return key.includes(map.matcher);
     });
-    var typeReplacement = _.find(ocPropTypeMap, function(map) {
-        return type === map.oType;
+    var typeReplacement = _.find(ocPropTypeMap, function(map) { 
+      return type === map.oType
     });
     return keyReplacement ? keyReplacement.type : typeReplacement ? typeReplacement.nType : type;
   }

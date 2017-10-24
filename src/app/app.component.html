@@ -1,10 +1,17 @@
-<div *ngIf="selectedModel">
-    <div style="margin:0 auto; display:block;">
-        <br>
-        <label class="ui-widget">Select an OrderCloud Model</label>
-        <br>
-        <p-dropdown [options]="models" [(ngModel)]="selectedModel"></p-dropdown>
+<div class="container" *ngIf="selectedModel">
+    <br>
+    <div class="form-group">
+        <label for="ModelSelector">Select an OrderCloud Model</label>
+        <select id="ModelSelector" name="ModelSelector" class="form-control" [(ngModel)]="selectedModel">
+            <option *ngFor='let model of models' [ngValue]='model.value' >{{model.label}}</option>
+        </select>
     </div>
     <hr>
-    <oc-form [type]="selectedModel"></oc-form>
+    <div class="row">
+        <div class="col-md-6">
+            <oc-form [type]="selectedModel"></oc-form>
+        </div>
+        <div class="col-md-6">
+        </div>
+    </div>
 </div>

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SelectItem } from 'primeng/primeng';
 import { OcFormService } from "./ordercloud-forms/oc-form.service";
 import _ from "lodash";
 
@@ -10,7 +9,7 @@ import _ from "lodash";
 })
 export class AppComponent {
   title: string;
-  models: SelectItem[];
+  models: any[];
   selectedModel: string;
 
   constructor(private ocFormService:OcFormService) {
@@ -31,7 +30,7 @@ export class AppComponent {
             })
           }
         }
-        this.selectedModel = 'BuyerShipment';
+        this.selectedModel = 'Address';
       });
   }
 }

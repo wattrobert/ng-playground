@@ -5,8 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from "@angular/forms";
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DynamicFormsCoreModule } from "@ng-dynamic-forms/core";
-import { DynamicFormsPrimeNGUIModule } from "@ng-dynamic-forms/ui-primeng";
+import { DynamicFormsNGBootstrapUIModule } from "@ng-dynamic-forms/ui-ng-bootstrap";
 
 import { OcFormService } from './oc-form.service';
 import { OcFormComponent } from './oc-form.component';
@@ -16,14 +17,14 @@ import { OcFormOptions } from './classes/form-options';
 import { OcLabelMap } from './classes/label-map';
 import { OcSwaggerSpec } from './classes/swagger-spec';
 
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule.forRoot(),
     DynamicFormsCoreModule.forRoot(), 
-    DynamicFormsPrimeNGUIModule,
+    DynamicFormsNGBootstrapUIModule,
     HttpClientModule
   ],
   declarations: [

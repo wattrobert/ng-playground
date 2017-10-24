@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { DropdownModule } from 'primeng/primeng';
 import { AppRoutingModule } from './app-routing.module';	
 import { OrdercloudFormsCoreModule } from './ordercloud-forms/core.module'
 
@@ -20,13 +19,13 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
-    DropdownModule,
     OrdercloudFormsCoreModule.forRoot({
       exclude:[
         'ID', 
         'AddressName',
         'ToAddressID',
-        'FromAddressID'
+        'FromAddressID',
+        'TermsAccepted'
       ], 
       labelMap:[
         {

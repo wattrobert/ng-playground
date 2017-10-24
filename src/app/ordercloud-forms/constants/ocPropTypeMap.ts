@@ -1,6 +1,6 @@
-export const ocPropTypeMap =  [
-    {
-        oType: 'integer',
-        nType: 'number'
-    }
-]
+export class PropTypeMap {
+    oType: string;
+    nType: string;
+}
+
+export const ocPropTypeMap: PropTypeMap[] =  []

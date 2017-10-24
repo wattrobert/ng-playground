@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { OcFormService } from "./oc-form.service";
 import { OcFormOptions } from "./classes/form-options";
 import { DynamicFormControlModel, DynamicFormService } from "@ng-dynamic-forms/core";
+import { NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { SimpleChanges } from "@angular/core";
 
 @Component( {
@@ -10,7 +11,7 @@ import { SimpleChanges } from "@angular/core";
     inputs: ['type', 'options'],
     template:'<div *ngIf="formGroup">' +
                 '<form [formGroup]="formGroup">' +
-                    '<dynamic-primeng-form [group]="formGroup" [model]="formModel"></dynamic-primeng-form>' +
+                    '<dynamic-ng-bootstrap-form [group]="formGroup" [model]="formModel"></dynamic-ng-bootstrap-form>' +
                 '</form>' +
             '</div>'
 } )
@@ -23,10 +24,11 @@ export class OcFormComponent implements OnInit, OnChanges {
     options: OcFormOptions;
 
 
-    constructor(  private formService: DynamicFormService, private ocFormService: OcFormService ) { }
+    constructor(  private formService: DynamicFormService, private ocFormService: OcFormService, private datePickerConfig: NgbDatepickerConfig ) { 
+        datePickerConfig.navigation = 'arrows';
+    }
 
     ngOnInit() {
-        // this.ocModelService.get(this.model);
         this.ocFormService.get(this.type, this.options).then( ocFormModel => {
             this.formModel = ocFormModel;
             this.formGroup = this.formService.createFormGroup( this.formModel );
